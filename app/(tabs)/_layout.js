@@ -8,8 +8,9 @@ const Layout = () => {
     return (
         <Tabs>
             <Tabs.Screen 
-                name="homepage/home" 
-                options={{ 
+                name="homepage" 
+                options={{
+                    headerShown: false, 
                     tabBarLabel: 'Home',
                     tabBarIcon: () => (<AntDesign name="home" size={24} color="green" />)
                 }} 

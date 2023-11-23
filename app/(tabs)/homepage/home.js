@@ -14,7 +14,7 @@ const home = () => {
             <View style={tw`flex-row justify-between`}>
                 <View style={tw`flex-row`}>
                     <Image 
-                        style={tw`w-20 h-20 mx-auto rounded-full dark:bg-gray-500 aspect-square`}
+                        style={tw`w-15 h-15 mx-auto rounded-full dark:bg-gray-500 aspect-square`}
                         source={'https://source.unsplash.com/150x150/?portrait?3'} 
                     />
 
