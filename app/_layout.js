@@ -10,6 +10,7 @@ export default function Layout(){
             <Stack.Screen name="onboarding3" options={{headerShown:false}}  />
             <Stack.Screen name="login" />
             <Stack.Screen name="register" />
+            <Stack.Screen name="(tabs)" options={{headerShown: false}} />
         </Stack>
     )
 }
