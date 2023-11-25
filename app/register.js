@@ -3,9 +3,40 @@ import { View, Text, Image, TextInput, TouchableOpacity, StyleSheet } from "reac
 import MedicsLogo from '../assets/medicslogo.png'
 import tw from 'twrnc'
 import { Entypo, AntDesign } from '@expo/vector-icons';
-import { Link } from "expo-router";
+import { Link, useRouter } from "expo-router";
+import axios from "axios";
 
 const register = () => {
+    
+    const router = useRouter
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleSubmit = async () => {
+        try {
+          const response = await axios.post('https://klusterhon.onrender.com/auth/signup', {
+            firstName,
+            lastName,
+            email,
+            phoneNumber,
+            password,
+          });
+          router.push('/login')
+          console.log('Registration successful:', response.data);
+        } catch (error) {
+          if (error.response) {
+            console.error('Registration failed:', error.response.data);
+          } else if (error.request) {
+            console.error('No response received during registration');
+          } else {
+            console.error('Error during registration:', error.message);
+          }
+        }
+      };
+
     return (
         <View style={tw`p-5`}>
             <View style={tw`flex justify-center items-center`}>
@@ -18,31 +49,49 @@ const register = () => {
 
             <View style={tw`grid gap-2 mb-5`}>
                 <View style={tw`mt-2`}>
-                    <Text style={tw`block mb-2 text-sm font-medium text-gray-900 dark:text-white`}>Name</Text>
+                    <Text style={tw`block mb-2 text-sm font-medium text-gray-900 dark:text-white`}>Firstname</Text>
                     <TextInput 
                         style={tw`bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-green-700 dark:border-green-600 dark:placeholder-green-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500`} 
-                        placeholder="Full Name" 
+                        placeholder="First Name"
+                        onChangeText={(text) => setFirstName(text)}
+                        value={firstName} 
+                    />
+                </View>
+                <View style={tw`mt-2`}>
+                    <Text style={tw`block mb-2 text-sm font-medium text-gray-900 dark:text-white`}>Lastname</Text>
+                    <TextInput 
+                        style={tw`bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-green-700 dark:border-green-600 dark:placeholder-green-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500`} 
+                        placeholder="Last Name"
+                        onChangeText={(text) => setLastName(text)}
+                        value={lastName} 
                     />
                 </View>
                 <View style={tw`mt-3`}>
                     <Text style={tw`block mb-2 text-sm font-medium text-gray-900 dark:text-white`}>Email</Text>
                     <TextInput 
                         style={tw`bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`} 
-                        placeholder="email@gmail.com" 
+                        placeholder="email@gmail.com"
+                        onChangeText={(text) => setEmail(text)}
+                        value={email} 
                     />
                 </View>
                 <View style={tw`mt-2`}>
                     <Text style={tw`block mb-2 text-sm font-medium text-gray-900 dark:text-white`}>Number</Text>
                     <TextInput 
                         style={tw`bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`} 
-                        placeholder="+735 456 8977" 
+                        placeholder="+735 456 8977"
+                        onChangeText={(text) => setPhoneNumber(text)}
+                        value={phoneNumber} 
                     />
                 </View>
                 <View style={tw`mt-2`}>
                     <Text style={tw`block mb-2 text-sm font-medium text-gray-900 dark:text-white`}>Password</Text>
                     <TextInput 
                         style={tw`bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`} 
-                        placeholder="Enter Password Here" 
+                        placeholder="Enter Password Here"
+                        onChangeText={(text) => setPassword(text)}
+                        value={password}
+                        secureTextEntry={true} 
                     />
                 </View>
                 {/* <View style={tw`mt-2 flex-row justify-end`}>
@@ -51,7 +100,7 @@ const register = () => {
                     </Text>
                 </View> */}
                 <View style={tw`mt-2`}>
-                    <TouchableOpacity onPress={() => router.push('/login')}>
+                    <TouchableOpacity onPress={handleSubmit}>
                         <View style={tw`items-center justify-center rounded-none focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800`}>
                         <Text style={tw`text-white text-[15px] text-center`}>
                             SIGN UP

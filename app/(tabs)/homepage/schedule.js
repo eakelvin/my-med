@@ -4,7 +4,7 @@ import tw from 'twrnc'
 
 const schedule = () => {
     return (
-        <View>
+        <View style={tw`mt-10 px-2 py-5`}>
             <Text>scchh</Text>
         </View>
     )

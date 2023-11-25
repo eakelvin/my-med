@@ -33,7 +33,7 @@ const home = () => {
 
             <View style={tw`mt-10 flex-row justify-between`}>
                 <Text style={tw`font-bold text-lg`}>Upcoming Schedule</Text>
-                <TouchableOpacity onPress={() => router.push('/schedule')}>
+                <TouchableOpacity onPress={() => router.push('homepage/schedule')}>
                     <Text style={tw`underline text-green-500 font-bold`}>View All</Text>
                 </TouchableOpacity>
             </View>

@@ -4,14 +4,14 @@ import MedicsLogo from '../assets/medicslogo.png'
 import tw from 'twrnc'
 import { Entypo, AntDesign } from '@expo/vector-icons';
 import { Link, useRouter } from "expo-router";
+import axios from "axios";
 
 const login = () => {
     const router = useRouter()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
-    const handleSubmit = async (event) => {
-        event.preventDefault()
+    const handleSubmit = async () => {
         console.warn(email);
         // console.warn(password);
         setEmail("")
