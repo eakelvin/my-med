@@ -14,7 +14,7 @@ const add_medicine = () => {
     ]
 
     return (
-        <View style={tw`p-5 mt-5`}>
+        <View style={tw`px-5 py-10 mt-5`}>
             <View>
                 <Text style={tw`font-bold text-xl`}>Add Medicine</Text>
                 <Text>Alarm notification is automatic when Scheduling reminders</Text>

@@ -33,7 +33,9 @@ const home = () => {
 
             <View style={tw`mt-10 flex-row justify-between`}>
                 <Text style={tw`font-bold text-lg`}>Upcoming Schedule</Text>
-                <Text style={tw`underline text-green-500 font-bold`}>View All</Text>
+                <TouchableOpacity onPress={() => router.push('/schedule')}>
+                    <Text style={tw`underline text-green-500 font-bold`}>View All</Text>
+                </TouchableOpacity>
             </View>
 
             <View style={tw`mt-2 p-5 bg-green-500 bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800`}>
@@ -56,7 +58,9 @@ const home = () => {
             </View>
 
             <View style={tw`mt-20 items-center`}>
-                <Image source={Pill} />
+                <TouchableOpacity onPress={() => router.push('/homepage/reminder')}>
+                    <Image source={Pill} />
+                </TouchableOpacity>
                 <Text>Enter medication details and set reminder</Text>
             </View>
 
