@@ -12,12 +12,21 @@ const login = () => {
     const [password, setPassword] = useState("")
 
     const handleSubmit = async () => {
-        console.warn(email);
-        // console.warn(password);
-        setEmail("")
-        setPassword("")
-        router.replace('/(tabs)/homepage/home')
-    }
+        try {
+          const response = await axios.post('https://klusterhon.onrender.com/auth/signin', { email, password });
+        //   router.push('/homepage/home')
+            router.replace('/(tabs)/homepage/home')
+          console.log('Registration successful:', response.data);
+        } catch (error) {
+          if (error.response) {
+            console.error('Registration failed:', error.response.data);
+          } else if (error.request) {
+            console.error('No response received during registration');
+          } else {
+            console.error('Error during registration:', error.message);
+          }
+        }
+      };
 
     return (
         <View style={tw`p-5`}>
@@ -57,7 +66,6 @@ const login = () => {
                     </Text>
                 </View>
                 <View style={tw`mt-2`}>
-                    {/* <TouchableOpacity onPress={() => router.replace('/(tabs)/homepage/home')}> */}
                     <TouchableOpacity onPress={handleSubmit}>
                         <View style={tw`items-center justify-center rounded-none focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800`}>
                         <Text style={tw`text-white text-[15px] text-center`}>
