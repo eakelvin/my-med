@@ -6,6 +6,17 @@
     },
     "plugins": [
       "expo-router"
-    ]
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "105f1439-b9da-47c2-8391-cba11d9735da"
+      }
+    },
+    "android": {
+      "package": "com.klusterthon.mymed"
+    }
   }
 }
