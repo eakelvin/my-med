@@ -24,7 +24,7 @@ const register = () => {
             phoneNumber,
             password,
           });
-          if (response.success) {
+          if (response.data.successResponse) {
             // toast.success("User Created Successfully");
             router.push('/login')
           }
