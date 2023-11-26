@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Image, TouchableOpacity, TextInput } from "react-native";
+import { View, Text, Image, TouchableOpacity, TextInput, ScrollView } from "react-native";
 import { SelectList } from "react-native-dropdown-select-list";
 import tw from 'twrnc'
 
@@ -14,7 +14,8 @@ const add_medicine = () => {
     ]
 
     return (
-        <View style={tw`px-5 py-10 mt-5`}>
+        <View style={tw`p-5 mt-6`}>
+            <ScrollView>
             <View>
                 <Text style={tw`font-bold text-xl`}>Add Medicine</Text>
                 <Text>Alarm notification is automatic when Scheduling reminders</Text>
@@ -146,14 +147,17 @@ const add_medicine = () => {
                 </View>
             </View>
 
-            <TouchableOpacity>
+            <View style={tw`mt-3`}>
+                <TouchableOpacity>
                     <View style={tw`items-center justify-center rounded-none focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800`}>
-                    <Text style={tw`text-white text-[15px] text-center`}>
-                        SCHEDULE
-                    </Text>
+                        <Text style={tw`text-white text-[15px] text-center`}>
+                            SCHEDULE
+                        </Text>
                     </View>
-            </TouchableOpacity>
+                </TouchableOpacity>
+            </View>
 
+        </ScrollView>
         </View>
     )
 }

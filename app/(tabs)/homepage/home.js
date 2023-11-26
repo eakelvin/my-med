@@ -74,11 +74,11 @@ const home = () => {
                 </TouchableOpacity>
             </View>
 
-            <View>
+            {/* <View>
                 <Link href={'/login'} replace asChild>
                     <Button title="Logout" />
                 </Link>
-            </View>
+            </View> */}
             
         </View>
     )

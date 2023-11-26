@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Image, TextInput, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Text, Image, TextInput, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
 import MedicsLogo from '../assets/medicslogo.png'
 import tw from 'twrnc'
 import { Entypo, AntDesign } from '@expo/vector-icons';
@@ -12,7 +12,7 @@ const register = () => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
-    const [phoneNumber, setPhoneNumber] = useState('');
+    const [phone, setPhone] = useState('');
     const [password, setPassword] = useState('');
 
     const handleSubmit = async () => {
@@ -21,12 +21,12 @@ const register = () => {
             firstName,
             lastName,
             email,
-            phoneNumber,
+            phone,
             password,
           });
-          if (response.data.successResponse) {
+          if (response.data.success) {
             // toast.success("User Created Successfully");
-            router.push('/login')
+            router.replace('/login')
           }
           
           console.log('Registration successful:', response.data);
@@ -43,13 +43,14 @@ const register = () => {
             setLastName('')
             setEmail('')
             setPassword('')
-            setPhoneNumber('')
+            setPhone('')
         }
       
       };
 
     return (
         <View style={tw`p-5`}>
+            <ScrollView>
             <View style={tw`flex justify-center items-center`}>
                 <Image source={MedicsLogo} />
             </View>
@@ -91,8 +92,8 @@ const register = () => {
                     <TextInput 
                         style={tw`bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`} 
                         placeholder="735 986 5433"
-                        onChangeText={(text) => setPhoneNumber(text)}
-                        value={phoneNumber} 
+                        onChangeText={(text) => setPhone(text)}
+                        value={phone} 
                     />
                 </View>
                 <View style={tw`mt-2`}>
@@ -145,6 +146,7 @@ const register = () => {
                 </View>
 
             </View>
+        </ScrollView>
         </View>
     )
 }

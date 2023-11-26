@@ -23,8 +23,9 @@ const Layout = () => {
                 }} 
             />
             <Tabs.Screen 
-                name="profile" 
-                options={{ 
+                name="profilepage" 
+                options={{
+                    headerShown: false, 
                     tabBarLabel: 'Profile',
                     tabBarIcon: () => (<AntDesign name="user" size={24} color="black" />)
                 }} />
