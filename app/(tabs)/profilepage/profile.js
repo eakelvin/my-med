@@ -1,4 +1,4 @@
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
 import React from "react";
 import { useRouter } from "expo-router";
 import tw from 'twrnc'
@@ -8,6 +8,7 @@ const profile = () => {
     
     return (
         <View style={tw`mt-20 p-4`}>
+        <ScrollView>
             <View style={tw`flex-row justify-between`}>
                 <View style={tw`flex-row`}>
                     <Image 
@@ -113,8 +114,7 @@ const profile = () => {
                 <Text style={tw`my-5 text-medium`}>Last updated Nov 27, 2023 at 8:37AM</Text>
             </View>
 
-
-
+        </ScrollView>
         </View>
     )
 }

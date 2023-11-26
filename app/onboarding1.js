@@ -3,12 +3,14 @@ import { View, Text, Button, Image, TouchableOpacity } from "react-native";
 import Frame from '../assets/frame37158.png'
 import tw from 'twrnc'
 import { FontAwesome } from '@expo/vector-icons';
+import { ScrollView } from "react-native-gesture-handler";
 
 const onboarding1 = () => {
     const router = useRouter()
 
     return (
         <View style={tw`mt-20`}>
+        <ScrollView>
             <View style={tw`flex justify-center items-center`}>
                 <Image style={tw``} source={Frame} />
             </View>
@@ -45,6 +47,7 @@ const onboarding1 = () => {
                     </TouchableOpacity>
                 </View>
             </View>
+        </ScrollView>
         </View>
     )
 

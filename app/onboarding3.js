@@ -1,14 +1,16 @@
 import { Link, useRouter } from "expo-router";
-import { View, Text, Button, Image, TouchableOpacity } from "react-native";
+import { View, Text, Button, Image, TouchableOpacity, ScrollView } from "react-native";
 import Frame from '../assets/frame37156.png'
 import tw from 'twrnc'
 import { AntDesign } from '@expo/vector-icons';
+import { ScrollView } from "react-native-gesture-handler";
 
 const onboarding1 = () => {
     const router = useRouter()
 
     return (
         <View style={tw`mt-18`}>
+            <ScrollView>
             <View style={tw`flex justify-center items-center`}>
                 <Image source={Frame} />
             </View>
@@ -42,6 +44,7 @@ const onboarding1 = () => {
                     </TouchableOpacity>
                 </View>
             </View>
+        </ScrollView>
         </View>
     )
 

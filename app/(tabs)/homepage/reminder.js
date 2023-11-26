@@ -4,10 +4,12 @@ import { SelectList } from "react-native-dropdown-select-list";
 import tw from 'twrnc'
 import { Fontisto } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
+import { ScrollView } from "react-native-gesture-handler";
 
 const reminder = () => {
     return (
         <View style={tw`mt-10 p-5`}>
+        <ScrollView>
             <View>
                 <Text style={tw`font-bold text-xl`}>Reminder</Text>
                 <Text>Turn off reminder by selecting either of the options below</Text>
@@ -69,7 +71,7 @@ const reminder = () => {
                     <View><Text>7</Text></View>
                 </View>
             </View>
-            
+        </ScrollView>
         </View>
     )
 }

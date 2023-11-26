@@ -1,5 +1,5 @@
 import { Link, useRouter } from "expo-router";
-import { View, Text, Button, Image, TouchableOpacity } from "react-native";
+import { View, Text, Button, Image, TouchableOpacity, ScrollView } from "react-native";
 import Frame from '../assets/frame37154.png'
 import tw from 'twrnc'
 import { Ionicons } from '@expo/vector-icons';
@@ -10,6 +10,7 @@ const onboarding1 = () => {
 
     return (
         <View style={tw`mt-20`}>
+            <ScrollView>
             <View style={tw`flex justify-center items-center`}>
                 <Image style={tw``} source={Frame} />
             </View>
@@ -54,6 +55,7 @@ const onboarding1 = () => {
                     </TouchableOpacity>
                 </View>
             </View>
+        </ScrollView>
         </View>
     )
 

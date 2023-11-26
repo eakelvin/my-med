@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { View, Text, Image, TextInput, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Text, Image, TextInput, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
 import MedicsLogo from '../assets/medicslogo.png'
 import tw from 'twrnc'
 import { Entypo, AntDesign } from '@expo/vector-icons';
 import { Link, useRouter } from "expo-router";
 import axios from "axios";
+import { ScrollView } from "react-native-gesture-handler";
 
 const login = () => {
     const router = useRouter()
@@ -44,6 +45,7 @@ const login = () => {
 
     return (
         <View style={tw`p-5`}>
+            <ScrollView>
             <View style={tw`flex justify-center items-center`}>
                 <Image source={MedicsLogo} />
             </View>
@@ -131,6 +133,7 @@ const login = () => {
                 </View> */}
 
             </View>
+        </ScrollView>
         </View>
     )
 }

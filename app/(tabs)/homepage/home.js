@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, TouchableOpacity, Button } from "react-native";
+import { View, Text, Image, TouchableOpacity, Button, ScrollView } from "react-native";
 import tw from 'twrnc'
 import { Ionicons } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
@@ -11,6 +11,7 @@ const home = () => {
     
     return (
         <View style={tw`p-5`}>
+        <ScrollView>
             <View style={tw`flex-row justify-between`}>
                 <View style={tw`flex-row`}>
                     <Image 
@@ -79,7 +80,8 @@ const home = () => {
                     <Button title="Logout" />
                 </Link>
             </View> */}
-            
+
+        </ScrollView>
         </View>
     )
 }

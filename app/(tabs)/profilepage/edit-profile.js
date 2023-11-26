@@ -1,9 +1,10 @@
-import { View, Text, Image, TouchableOpacity, TextInput } from "react-native";
+import { View, Text, Image, TouchableOpacity, TextInput, ScrollView } from "react-native";
 import React, { useState } from "react";
 import { useRouter } from "expo-router";
 import tw from 'twrnc'
 import { Feather } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
+import { ScrollView } from "react-native-gesture-handler";
 
 const editProfile = () => {
     const [firstName, setFirstName] = useState('');
@@ -17,7 +18,7 @@ const editProfile = () => {
 
     return (
         <View style={tw`mt-20 px-3 py-5`}>
-            
+        <ScrollView>
             <View style={tw`flex-row p-5 border-b-2 border-slate-200`}>
                 <View>
                     <FontAwesome name="user-secret" size={34} color="black" />
@@ -128,8 +129,7 @@ const editProfile = () => {
             </View>
             
 
-
-
+        </ScrollView>
         </View>
     )
 }

@@ -19,10 +19,7 @@ export default function splash() {
     <View style={tw`flex-1 justify-center items-center mt-20`}>
        <Animated.View style={{ opacity: fadeAnim }}>
             <Link href='/onboarding1'>
-              <Image 
-                source={MedicsLogo} 
-                // style={{width: 100, height: 100}} 
-              />
+              <Image source={MedicsLogo}  />
             </Link>
         </Animated.View>
     </View>
