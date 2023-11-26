@@ -1,7 +1,7 @@
 import { Text, View, Image, Animated } from "react-native";
 import { Link } from "expo-router";
 import tw from 'twrnc'
-import MedicsLogo from '../assets/mymed.png'
+import MedicsLogo from '../assets/medlogo.png'
 import { useEffect, useRef } from "react";
 
 export default function splash() {
