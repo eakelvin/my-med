@@ -14,8 +14,10 @@ const login = () => {
     const handleSubmit = async () => {
         try {
           const response = await axios.post('https://klusterhon.onrender.com/auth/signin', { email, password });
-        //   router.push('/homepage/home')
-            router.replace('/(tabs)/homepage/home')
+          if (response.status === 200) {
+           //   router.push('/homepage/home')
+           router.replace('/(tabs)/homepage/home')
+          }
           console.log('Registration successful:', response.data);
         } catch (error) {
           if (error.response) {
@@ -25,8 +27,20 @@ const login = () => {
           } else {
             console.error('Error during registration:', error.message);
           }
+        } finally {
+            setEmail('')
+            setPassword('')
         }
       };
+
+      const handleResetPassword = async () => {
+        try {
+            const response = await axios.post('https://klusterhon.onrender.com/auth/forgotpassword', { email });
+        } catch (error) {
+            console.error('Error resetting password:', error.message);
+        }
+
+      }
 
     return (
         <View style={tw`p-5`}>
@@ -61,9 +75,11 @@ const login = () => {
                     />
                 </View>
                 <View style={tw`mt-2 flex-row justify-end`}>
+                    <TouchableOpacity onPress={handleResetPassword}>
                     <Text style={tw`align-baseline font-bold text-sm text-green-500 hover:text-blue-800 underline-offset-4`}>
                         Forget Password?
                     </Text>
+                    </TouchableOpacity>
                 </View>
                 <View style={tw`mt-2`}>
                     <TouchableOpacity onPress={handleSubmit}>

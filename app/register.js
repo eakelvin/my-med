@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, Image, TextInput, TouchableOpacity, StyleSheet } from "react-native";
 import MedicsLogo from '../assets/medicslogo.png'
 import tw from 'twrnc'
@@ -7,7 +7,7 @@ import { Link, useRouter } from "expo-router";
 import axios from "axios";
 
 const register = () => {
-    
+
     const router = useRouter
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -24,7 +24,11 @@ const register = () => {
             phoneNumber,
             password,
           });
-          router.push('/login')
+          if (response.success) {
+            // toast.success("User Created Successfully");
+            router.push('/login')
+          }
+          
           console.log('Registration successful:', response.data);
         } catch (error) {
           if (error.response) {
@@ -34,7 +38,14 @@ const register = () => {
           } else {
             console.error('Error during registration:', error.message);
           }
+        } finally{
+            setFirstName('')
+            setLastName('')
+            setEmail('')
+            setPassword('')
+            setPhoneNumber('')
         }
+      
       };
 
     return (
@@ -79,7 +90,7 @@ const register = () => {
                     <Text style={tw`block mb-2 text-sm font-medium text-gray-900 dark:text-white`}>Number</Text>
                     <TextInput 
                         style={tw`bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`} 
-                        placeholder="+735 456 8977"
+                        placeholder="735 986 5433"
                         onChangeText={(text) => setPhoneNumber(text)}
                         value={phoneNumber} 
                     />
@@ -94,11 +105,6 @@ const register = () => {
                         secureTextEntry={true} 
                     />
                 </View>
-                {/* <View style={tw`mt-2 flex-row justify-end`}>
-                    <Text style={tw`align-baseline font-bold text-sm text-green-500 hover:text-blue-800 underline`}>
-                        Forget Password?
-                    </Text>
-                </View> */}
                 <View style={tw`mt-2`}>
                     <TouchableOpacity onPress={handleSubmit}>
                         <View style={tw`items-center justify-center rounded-none focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800`}>
