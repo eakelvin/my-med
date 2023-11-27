@@ -11,7 +11,7 @@ const profile = () => {
     const router = useRouter()
     
     return (
-        <View style={tw`p-5`}>
+        <View style={tw`mt-5 p-5`}>
         <ScrollView>
             <View style={tw`flex-row justify-between`}>
                 <View style={tw`flex-row`}>
