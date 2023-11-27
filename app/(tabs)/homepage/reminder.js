@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { View, Text, Image, TouchableOpacity, TextInput } from "react-native";
+import { View, Text, Image, TouchableOpacity, TextInput, ScrollView } from "react-native";
 import { SelectList } from "react-native-dropdown-select-list";
 import tw from 'twrnc'
 import { Fontisto } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
-import { ScrollView } from "react-native-gesture-handler";
+// import { ScrollView } from "react-native-gesture-handler";
 
 const reminder = () => {
     return (

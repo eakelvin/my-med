@@ -1,9 +1,9 @@
 import { useRouter } from "expo-router";
-import { View, Text, Button, Image, TouchableOpacity } from "react-native";
+import { View, Text, Button, Image, TouchableOpacity, ScrollView } from "react-native";
 import Frame from '../assets/frame37158.png'
 import tw from 'twrnc'
 import { FontAwesome } from '@expo/vector-icons';
-import { ScrollView } from "react-native-gesture-handler";
+// import { ScrollView } from "react-native-gesture-handler";
 
 const onboarding1 = () => {
     const router = useRouter()

@@ -3,7 +3,7 @@ import { View, Text, Button, Image, TouchableOpacity, ScrollView } from "react-n
 import Frame from '../assets/frame37156.png'
 import tw from 'twrnc'
 import { AntDesign } from '@expo/vector-icons';
-import { ScrollView } from "react-native-gesture-handler";
+// import { ScrollView } from "react-native-gesture-handler";
 
 const onboarding1 = () => {
     const router = useRouter()

@@ -4,7 +4,7 @@ import { useRouter } from "expo-router";
 import tw from 'twrnc'
 import { Feather } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
-import { ScrollView } from "react-native-gesture-handler";
+// import { ScrollView } from "react-native-gesture-handler";
 
 const editProfile = () => {
     const [firstName, setFirstName] = useState('');

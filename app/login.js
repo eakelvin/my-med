@@ -5,7 +5,7 @@ import tw from 'twrnc'
 import { Entypo, AntDesign } from '@expo/vector-icons';
 import { Link, useRouter } from "expo-router";
 import axios from "axios";
-import { ScrollView } from "react-native-gesture-handler";
+// import { ScrollView } from "react-native-gesture-handler";
 
 const login = () => {
     const router = useRouter()

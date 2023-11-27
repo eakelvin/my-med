@@ -17,6 +17,9 @@
     },
     "android": {
       "package": "com.klusterthon.mymed"
+    },
+    "ios": {
+      "bundleIdentifier": "com.klusterthon.mymed"
     }
   }
 }
