@@ -8,7 +8,7 @@ import axios from "axios";
 
 const register = () => {
 
-    const router = useRouter
+    const router = useRouter()
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
@@ -26,7 +26,10 @@ const register = () => {
           });
           if (response.data.success) {
             // toast.success("User Created Successfully");
-            router.replace('/login')
+            // router.replace('/login')
+            console.log('Before navigating to login page');
+            router.replace('/login');
+            console.log('After navigating to login page');
           }
           
           console.log('Registration successful:', response.data);

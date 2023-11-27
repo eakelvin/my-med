@@ -12,7 +12,7 @@
         "origin": false
       },
       "eas": {
-        "projectId": "105f1439-b9da-47c2-8391-cba11d9735da"
+        "projectId": "81d408e9-e782-462e-adb5-6de96e2bc559"
       }
     },
     "android": {
@@ -20,6 +20,8 @@
     },
     "ios": {
       "bundleIdentifier": "com.klusterthon.mymed"
-    }
+    },
+    "owner": "eakelvin",
+    "slug": "my-med"
   }
 }
