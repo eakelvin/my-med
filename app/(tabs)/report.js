@@ -9,11 +9,11 @@ const Report = () => {
             <View style={tw`flex-row justify-between`}>
                 <View>
                     <Text style={tw`font-bold text-lg`}>Report</Text>
-                    <Text>This is an overall view of your medical reports so far</Text>
+                    <Text>An overall view of your medical reports so far</Text>
                 </View>
                 <View>
                     <TouchableOpacity>
-                        <View style={tw`rounded-none focus:outline-none hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 border border-green-500`}>
+                        <View style={tw`rounded-none focus:outline-none hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2 me-2 mb-2 border border-green-500`}>
                             <Text style={tw`text-green-500 text-[15px] text-center`}>
                                 Share <FontAwesome name="share" size={24} color="black" />
                             </Text>

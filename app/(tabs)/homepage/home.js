@@ -12,7 +12,7 @@ const home = () => {
     return (
         <View style={tw`p-5`}>
         <ScrollView>
-            <View style={tw`flex-row justify-between`}>
+            <View style={tw`flex-row justify-between border-b-2 border-slate-200`}>
                 <View style={tw`flex-row`}>
                     <Image 
                         style={tw`w-15 h-15 mx-auto rounded-full dark:bg-gray-500 aspect-square`}
@@ -32,7 +32,7 @@ const home = () => {
                 </View>
             </View>
 
-            <View style={tw`mt-10 flex-row justify-between`}>
+            <View style={tw`mt-6 flex-row justify-between`}>
                 <Text style={tw`font-bold text-lg`}>Upcoming Schedule</Text>
                 <TouchableOpacity onPress={() => router.push('homepage/schedule')}>
                     <Text style={tw`underline text-green-500 font-bold`}>View All</Text>
@@ -58,14 +58,14 @@ const home = () => {
                 </View>
             </View>
 
-            <View style={tw`mt-20 items-center`}>
+            <View style={tw`mt-10 items-center`}>
                 <TouchableOpacity onPress={() => router.push('/homepage/reminder')}>
                     <Image source={Pill} />
                 </TouchableOpacity>
                 <Text>Enter medication details and set reminder</Text>
             </View>
 
-            <View style={tw`mt-20`}>
+            <View style={tw`mt-10`}>
                 <TouchableOpacity onPress={() => router.push('/homepage/add_medicine')}>
                     <View style={tw`items-center justify-center rounded-none focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800`}>
                     <Text style={tw`text-white text-[15px] text-center`}>

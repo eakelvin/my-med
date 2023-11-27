@@ -17,12 +17,13 @@ const editProfile = () => {
     const [password, setPassword] = useState('');
 
     return (
-        <View style={tw`mt-20 px-3 py-5`}>
+        <View style={tw`px-3 py-5`}>
         <ScrollView>
             <View style={tw`flex-row p-5 border-b-2 border-slate-200`}>
                 <View>
                     <FontAwesome name="user-secret" size={34} color="black" />
                 </View>
+                <View style={tw`border border-r-4 border-slate-300 mx-6`}></View>
                     {/* <Image 
                         style={tw`w-15 h-15 rounded-full dark:bg-gray-500 aspect-square`}
                         source={'https://source.unsplash.com/150x150/?portrait?'} 
@@ -31,7 +32,7 @@ const editProfile = () => {
                 <View style={tw`justify-center items-center`}>
                     <View>
                         <TouchableOpacity>
-                            <View style={tw`border border-green-500 rounded-lg px-8 py-3`}>
+                            <View style={tw`border border-green-500 rounded-lg px-8 py-2`}>
                             <Text>
                                 <Feather name="upload-cloud" size={24} color="black" />
                                 Upload Photo

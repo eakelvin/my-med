@@ -2,12 +2,16 @@ import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
 import React from "react";
 import { useRouter } from "expo-router";
 import tw from 'twrnc'
+import { Fontisto } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 
 const profile = () => {
     const router = useRouter()
     
     return (
-        <View style={tw`mt-20 p-4`}>
+        <View style={tw`p-5`}>
         <ScrollView>
             <View style={tw`flex-row justify-between`}>
                 <View style={tw`flex-row`}>
@@ -34,54 +38,62 @@ const profile = () => {
             </View>
 
             <View style={tw`mt-2`}>
-                <Text style={tw`border border-slate-200 border-t-2 text-mute p-3`}>Medical Details</Text>
+                <View style={tw`border border-b-3 border-slate-300`}>
+                    <Text style={tw`text-mute p-2`}>Medical Details</Text>
+                </View>
                 <View style={tw`p-5`}>
                     <View style={tw`flex-row justify-between`}>
-                        <View>
-                            <Text>Blood Type</Text>
+                        <View style={tw`flex-row`}>
+                            <Fontisto name="blood-test" size={24} color="black" />
+                            <Text style={tw`text-md font-bold ml-2`}>Blood Type</Text>
                         </View>
                         <View>
                             <Text style={tw`text-mute`}>O+</Text>
                         </View>
                     </View>
                     <View style={tw`flex-row justify-between my-3`}>
-                        <View>
-                            <Text>Chronic Disease</Text>
+                        <View style={tw`flex-row`}>
+                            <FontAwesome5 name="disease" size={24} color="black" />
+                            <Text style={tw`text-md font-bold ml-2`}>Chronic Disease</Text>
                         </View>
                         <View>
-                            <Text style={tw`text-mute`}>O+</Text>
+                            <Text style={tw`text-mute`}>Diabetes</Text>
                         </View>
                     </View>
                     <View style={tw`flex-row justify-between`}>
-                        <View>
-                            <Text>Epilepsy</Text>
+                        <View style={tw`flex-row`}>
+                            <MaterialCommunityIcons name="emoticon-sick" size={24} color="black" />
+                            <Text style={tw`text-md font-bold ml-2`}>Epilepsy</Text>
                         </View>
                         <View>
-                            <Text style={tw`text-mute`}>O+</Text>
+                            <Text style={tw`text-mute`}>NO</Text>
                         </View>
                     </View>
                     <View style={tw`flex-row justify-between my-3`}>
-                        <View>
-                            <Text>Organ Donor</Text>
+                        <View style={tw`flex-row`}>
+                            <AntDesign name="heart" size={24} color="black" />
+                            <Text style={tw`text-md font-bold ml-2`}>Organ Donor</Text>
                         </View>
                         <View>
-                            <Text style={tw`text-mute`}>O+</Text>
+                            <Text style={tw`text-mute`}>YES</Text>
                         </View>
                     </View>
                     <View style={tw`flex-row justify-between`}>
-                        <View>
-                            <Text>Weight</Text>
+                        <View style={tw`flex-row`}>
+                            <FontAwesome5 name="weight" size={24} color="black" />
+                            <Text style={tw`text-md font-bold ml-2`}>Weight</Text>
                         </View>
                         <View>
-                            <Text style={tw`text-mute`}>O+</Text>
+                            <Text style={tw`text-mute`}>135 lb</Text>
                         </View>
                     </View>
                     <View style={tw`flex-row justify-between my-3`}>
-                        <View>
-                            <Text>Height</Text>
+                        <View style={tw`flex-row`}>
+                            <MaterialCommunityIcons name="human-male-height-variant" size={24} color="black" />
+                            <Text style={tw`text-md font-bold ml-2`}>Height</Text>
                         </View>
                         <View>
-                            <Text style={tw`text-mute`}>O+</Text>
+                            <Text style={tw`text-mute`}>5ft, 9in</Text>
                         </View>
                     </View>
 
@@ -89,13 +101,13 @@ const profile = () => {
             </View>
 
             <View style={tw`mt-2 border-b-2 border-slate-300`}>
-                <Text style={tw`border border-slate-200 border-2-4 border-t-2 text-mute p-3`}>Conditions & Allergies</Text>
+                <Text style={tw`border border-slate-200 border-2-4 border-t-2 text-mute p-2`}>Conditions & Allergies</Text>
                 <View style={tw`p-2`}>
                     <Text style={tw`text-green-500 mt-2`}>Medical Conditions</Text>
-                    <Text style={tw`mt-2`}>High blood Pressure</Text>
+                    <Text style={tw`mt-1`}>High blood Pressure</Text>
 
                     <Text style={tw`text-green-500 mt-5`}>Allergies & Reactions</Text>
-                    <Text style={tw`mt-2 mb-3`}>Penicillin - Severe skin rash</Text>
+                    <Text style={tw`mt-1 mb-3`}>Penicillin - Severe skin rash</Text>
                 </View>
             </View>
 
