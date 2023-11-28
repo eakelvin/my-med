@@ -5,8 +5,7 @@ import tw from 'twrnc'
 import { Entypo, AntDesign } from '@expo/vector-icons';
 import { Link, useRouter } from "expo-router";
 import axios from "axios";
-import Toast from "react-native-toast-message";
-// import { ScrollView } from "react-native-gesture-handler";
+import ToastManager, { Toast } from 'toastify-react-native'
 
 const login = () => {
     const router = useRouter()
@@ -17,13 +16,7 @@ const login = () => {
         try {
           const response = await axios.post('https://klusterhon.onrender.com/auth/signin', { email, password });
           if (response.status === 200) {
-           //   router.push('/homepage/home')
-           Toast.show({ 
-                type: 'success', 
-                text1: "Successful Login",
-                visibilityTime: 5000,
-                position: 'top',
-            })
+           Toast.success('Login Successful')
            router.replace('/(tabs)/homepage/home')
           }
           console.log('Registration successful:', response.data);
@@ -44,6 +37,7 @@ const login = () => {
 
     return (
         <View style={tw`p-5`}>
+        <ToastManager />
             <ScrollView>
             <View style={tw`flex justify-center items-center`}>
                 <Image source={MedicsLogo} />
@@ -132,7 +126,6 @@ const login = () => {
                 </View> */}
 
             </View>
-            <Toast />
         </ScrollView>
         </View>
     )
