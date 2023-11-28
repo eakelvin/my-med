@@ -5,6 +5,7 @@ import tw from 'twrnc'
 import { Entypo, AntDesign } from '@expo/vector-icons';
 import { Link, useRouter } from "expo-router";
 import axios from "axios";
+import Toast from "react-native-toast-message";
 
 const register = () => {
 
@@ -25,11 +26,11 @@ const register = () => {
             password,
           });
           if (response.data.success) {
-            // toast.success("User Created Successfully");
-            // router.replace('/login')
-            console.log('Before navigating to login page');
+            Toast.show({ 
+                type: 'success', 
+                text1: "User Created Successfully", 
+            })
             router.replace('/login');
-            console.log('After navigating to login page');
           }
           
           console.log('Registration successful:', response.data);
@@ -149,6 +150,7 @@ const register = () => {
                 </View>
 
             </View>
+            <Toast />
         </ScrollView>
         </View>
     )

@@ -5,6 +5,7 @@ import tw from 'twrnc'
 import { Entypo, AntDesign } from '@expo/vector-icons';
 import { Link, useRouter } from "expo-router";
 import axios from "axios";
+import Toast from "react-native-toast-message";
 // import { ScrollView } from "react-native-gesture-handler";
 
 const login = () => {
@@ -17,6 +18,12 @@ const login = () => {
           const response = await axios.post('https://klusterhon.onrender.com/auth/signin', { email, password });
           if (response.status === 200) {
            //   router.push('/homepage/home')
+           Toast.show({ 
+                type: 'success', 
+                text1: "Successful Login",
+                visibilityTime: 5000,
+                position: 'top',
+            })
            router.replace('/(tabs)/homepage/home')
           }
           console.log('Registration successful:', response.data);
@@ -34,14 +41,6 @@ const login = () => {
         }
       };
 
-      const handleResetPassword = async () => {
-        try {
-            const response = await axios.post('https://klusterhon.onrender.com/auth/forgotpassword', { email });
-        } catch (error) {
-            console.error('Error resetting password:', error.message);
-        }
-
-      }
 
     return (
         <View style={tw`p-5`}>
@@ -77,7 +76,7 @@ const login = () => {
                     />
                 </View>
                 <View style={tw`mt-2 flex-row justify-end`}>
-                    <TouchableOpacity onPress={handleResetPassword}>
+                    <TouchableOpacity onPress={() => router.push('Reset')}>
                     <Text style={tw`align-baseline font-bold text-sm text-green-500 hover:text-blue-800 underline-offset-4`}>
                         Forget Password?
                     </Text>
@@ -133,6 +132,7 @@ const login = () => {
                 </View> */}
 
             </View>
+            <Toast />
         </ScrollView>
         </View>
     )

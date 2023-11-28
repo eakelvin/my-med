@@ -1,9 +1,10 @@
 import { View, Text, Image, TouchableOpacity, TextInput, ScrollView } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "expo-router";
 import tw from 'twrnc'
 import { Feather } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
+import axios from "axios";
 // import { ScrollView } from "react-native-gesture-handler";
 
 const editProfile = () => {
@@ -15,6 +16,63 @@ const editProfile = () => {
     const [phone, setPhone] = useState('');
     const [date, setDate] = useState('');
     const [password, setPassword] = useState('');
+
+    const [updatedUserData, setUpdatedUserData] = useState({
+        firstName: '',
+        lastName: '',
+        email: '',
+        gender: '',
+        country: '',
+        phone: '',
+        date: '',
+      });
+
+      const fetchUserDetails = async () => {
+        try {
+          const response = await axios.get('https://klusterhon.onrender.com/user');
+          const userDetails = response.data.data;
+          // Update state with user details
+          setFirstName(userDetails.firstName || '');
+          setLastName(userDetails.lastName || '');
+          setEmail(userDetails.email || '');
+          setGender(userDetails.gender || '');
+          setCountry(userDetails.country || '');
+          setPhone(userDetails.phone || '');
+          setDate(userDetails.date || '');
+          console.log('User Details:', userDetails);
+        } catch (error) {
+          console.error('Error fetching user details:', error.message);
+        }
+      };
+    
+      const updateUserDetails = async () => {
+        try {
+          const response = await axios.post('https://klusterhon.onrender.com/user/update', updatedUserData);
+          const updatedUser = response.data.data;
+          console.log('User Updated:', updatedUser);
+          // Optionally, update local state or perform other actions
+        } catch (error) {
+          console.error('Error updating user details:', error.message);
+        }
+      };
+    
+      const handleSaveUpdate = () => {
+        // Update the updatedUserData object with the current state
+        setUpdatedUserData({
+          firstName,
+          lastName,
+          email,
+          gender,
+          country,
+          phone,
+          date,
+        });
+        updateUserDetails();
+      };
+    
+      useEffect(() => {
+        fetchUserDetails();
+      }, []);
 
     return (
         <View style={tw`px-3 py-5`}>
@@ -114,7 +172,7 @@ const editProfile = () => {
                     />
                 </View>
                 <View style={tw`mt-2`}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={handleSaveUpdate}>
                         <View style={tw`items-center justify-center rounded-none focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800`}>
                         <Text style={tw`text-white text-[15px] text-center`}>
                             Save & Update
