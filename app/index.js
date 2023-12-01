@@ -1,6 +1,12 @@
 import { Text, View, Image } from "react-native";
 import { Link, Redirect } from "expo-router";
+import { Provider } from "react-redux";
+import store from "./app/redux/store";
 
 export default function Index() {
-  return <Redirect href="/splash/" />
+  return (
+    <Provider store={store}>
+      <Redirect href="/splash/" />
+    </Provider>
+  ) 
 }

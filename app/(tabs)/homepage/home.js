@@ -6,25 +6,26 @@ import { Fontisto } from '@expo/vector-icons';
 import Pill from './covid_vaccine-protection-medicine-pill.png'
 import { Link, useRouter } from "expo-router";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 const home = () => {
-    const [userData, setUserData] = useState(null);
     const router = useRouter()
+    const { user } = useSelector((state) => state.auth)
 
-    useEffect(() => {
-        const fetchUserDetails = async () => {
-          try {
-            const response = await axios.get('https://klusterhon.onrender.com/user');
-            const user = response.data;
-            console.log('User Details:', user);
-            setUserData(user);
-          } catch (error) {
-            console.error('Error fetching user details:', error.message);
-          }
-        };
+    // useEffect(() => {
+    //     const fetchUserDetails = async () => {
+    //       try {
+    //         const response = await axios.get('https://klusterhon.onrender.com/user');
+    //         const user = response.data;
+    //         console.log('User Details:', user);
+    //         setUserData(user);
+    //       } catch (error) {
+    //         console.error('Error fetching user details:', error.message);
+    //       }
+    //     };
     
-        fetchUserDetails();
-      }, []);
+    //     fetchUserDetails();
+    //   }, []);
     
     return (
         <View style={tw`p-5`}>
@@ -38,8 +39,8 @@ const home = () => {
 
                     <View style={tw`ml-2 justify-center`}>
                         <View>
-                            <Text style={tw`text-2xl font-semibold`}>{userData?.firstName} {userData?.lastName}</Text>
-                            <Text style={tw`text-sm dark:text-gray-400`}>{userData?.country} {userData?.gender}</Text>
+                            <Text style={tw`text-2xl font-semibold`}>{user?.firstName} {user?.lastName}</Text>
+                            <Text style={tw`text-sm dark:text-gray-400`}>{user?.country} {user?.gender}</Text>
                         </View>
                     </View>
                 </View>

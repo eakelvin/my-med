@@ -21,13 +21,7 @@ const login = () => {
           }
           console.log('Registration successful:', response.data);
         } catch (error) {
-          if (error.response) {
-            console.error('Registration failed:', error.response.data);
-          } else if (error.request) {
-            console.error('No response received during registration');
-          } else {
-            console.error('Error during registration:', error.message);
-          }
+          Toast.error(error)
         } finally {
             setEmail('')
             setPassword('')
