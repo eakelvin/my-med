@@ -21,7 +21,11 @@ const login = () => {
           }
           console.log('Registration successful:', response.data);
         } catch (error) {
-          Toast.error(error)
+            if (error.response) {
+                Toast.error(error.response.data.message || 'An error occurred');
+              } else {
+                Toast.error('An error occurred');
+              }
         } finally {
             setEmail('')
             setPassword('')
